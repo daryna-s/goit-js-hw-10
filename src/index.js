@@ -10,7 +10,6 @@ const refs = {
 };
 
 
-
 fetchCountries();
 
 function fetchCountries() {
