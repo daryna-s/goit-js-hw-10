@@ -5,16 +5,10 @@ function fetchCountries(name) {
         .then(response => {
             
             if (!response.ok) {
-                refs.cardContainer.innerHTML = ``;
-                onFetchError();
+            throw new Error(response.statusText);
             }
             return response.json();
         })
-        .catch(onFetchError);
 }
 
-function onFetchError(error) {
-  Notify.failure('Oops, there is no country with that name');
-}
-
-export default { fetchCountries, onFetchError };
+export default { fetchCountries };
