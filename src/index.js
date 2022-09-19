@@ -60,54 +60,52 @@ function onFetchError() {
 }
 
 function addToCountryInfo(country) {
-  return country
-    .map(
-      ({ name, flags, capital, population, languages }) =>
-        `
-    <div class="flag__container">
+  return country.map(
+    ({ name, flags, capital, population, languages }) =>
+      `
+    <div class="flag__container" style = "display: flex; justify-content: space-between; align-items: center; width:290px">
         <img
           class="flag__img"
           src="${flags.svg}"
           alt="this is flag those country"
-          width=130
+          width = "30" height = "20"
         />
-        <h1>${name.official}</h1>
+        <h1  style = "margin-bottom: 0; margin-top: 0">${name.official}</h1>
       </div>
-      <ul class="country-info__desc">
-        <li class="country-info__item">
+      <ul class="country-info__desc" >
+        <li class="country-info__item" style = "list-style: none; font-weight: 700">
           Capital:
           <span>${capital}</span>
         </li>
-        <li class="country-info__item">
+        <li class="country-info__item" style = "list-style: none; font-weight: 700">
           Population:
           <span>${population}</span
           >
         </li>
-        <li class="country-info__item">
+        <li class="country-info__item" style = "list-style: none; font-weight: 700">
           Languages:
           <span>${Object.values(languages)}</span
           >
         </li>
       </ul>`
-    );
+  );
 }
 
 function addToCardList(country) {
   return country
     .map(
       ({ name, flags }) =>
-        `<li class="country-list__item">
+        `<li class="country-list__item" style = "list-style: none; font-family: sans-serif">
         <img
           class="country-list__flag"
           src="${flags.svg}"
           alt="country flag"
-          width=130
+          width = "20" height = "10"
           />
         <span class="country-list__name">${name.official}</span>
       </li>`
     )
-    .join('')
-    ;
+    .join('');
 }
 
 
