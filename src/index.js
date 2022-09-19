@@ -1,6 +1,6 @@
 import './css/styles.css';
 import debounce from 'lodash.debounce';
-var debounce = require('lodash.debounce');
+
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { fetchCountries } from './fetchCountries';
 
@@ -28,7 +28,7 @@ function onSearch(e) {
 
     fetchCountries(name)
         .then(response => {
-            console.log(response);
+        
       if (response.length > 10) {
           return Notify.info('Too many matches found. Please enter a more specific name.');
       }
@@ -43,15 +43,11 @@ function showCountries(country) {
 
     const markup = addToCountryInfo(country);
       cardContainer.innerHTML = markup;
-
-    //   cardContainer.insertAdjacentHTML('beforeend', addToCountryInfo(country));
   } else {
     cardContainer.innerHTML = '';
 
     const markup = addToCardList(country);
       list.innerHTML = markup;
-
-    //   list.insertAdjacentHTML('beforeend', addToCardList(country));
   }
 }
 
@@ -64,9 +60,10 @@ function onFetchError() {
 }
 
 function addToCountryInfo(country) {
-  return country.map(
-    ({ name, flags, capital, population, languages }) =>
-      `
+  return country
+    .map(
+      ({ name, flags, capital, population, languages }) =>
+        `
     <div class="flag__container">
         <img
           class="flag__img"
@@ -92,7 +89,7 @@ function addToCountryInfo(country) {
           >
         </li>
       </ul>`
-  );
+    );
 }
 
 function addToCardList(country) {
@@ -109,7 +106,8 @@ function addToCardList(country) {
         <span class="country-list__name">${name.official}</span>
       </li>`
     )
-    .join('');
+    .join('')
+    ;
 }
 
 
