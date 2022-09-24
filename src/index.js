@@ -94,8 +94,8 @@ function addToCountryInfo(country) {
 function addToCardList(country) {
   return country
     .map(
-      ({ name:{official}, flags: {svg} }) =>
-        `<li class="country-list__item" style = "list-style: none; font-family: sans-serif">
+      ({ name: { official }, flags: { svg } }) =>
+        `<li class="country-list__item" style = 'list-style: none; font-family: sans-serif'>
         <img
           class="country-list__flag"
           src="${svg}"
@@ -107,8 +107,5 @@ function addToCardList(country) {
     )
     .join('');
 }
-
-
-
 
 
