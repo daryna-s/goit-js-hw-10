@@ -61,16 +61,16 @@ function onFetchError() {
 
 function addToCountryInfo(country) {
   return country.map(
-    ({ name, flags, capital, population, languages }) =>
+    ({ name: { official }, flags: { svg }, capital, population, languages }) =>
       `
     <div class="flag__container" style = "display: flex; justify-content: space-between; align-items: center; width:290px">
         <img
           class="flag__img"
-          src="${flags.svg}"
+          src="${svg}"
           alt="this is flag those country"
           width = "30" height = "20"
         />
-        <h1  style = "margin-bottom: 0; margin-top: 0">${name.official}</h1>
+        <h1  style = "margin-bottom: 0; margin-top: 0">${official}</h1>
       </div>
       <ul class="country-info__desc" >
         <li class="country-info__item" style = "list-style: none; font-weight: 700">
@@ -94,15 +94,15 @@ function addToCountryInfo(country) {
 function addToCardList(country) {
   return country
     .map(
-      ({ name, flags }) =>
+      ({ name:{official}, flags: {svg} }) =>
         `<li class="country-list__item" style = "list-style: none; font-family: sans-serif">
         <img
           class="country-list__flag"
-          src="${flags.svg}"
+          src="${svg}"
           alt="country flag"
           width = "20" height = "10"
           />
-        <span class="country-list__name">${name.official}</span>
+        <span class="country-list__name">${official}</span>
       </li>`
     )
     .join('');
